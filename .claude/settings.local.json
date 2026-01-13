@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c \"import json; data = json.load\\(open\\(''.claude/skills/tikhub-api-helper/openapi.json'', encoding=''utf-8''\\)\\); print\\(''Tags:'', len\\(data.get\\(''tags'', []\\)\\)\\); print\\(''Paths:'', len\\(data.get\\(''paths'', {}\\)\\)\\); print\\(''Info:'', data.get\\(''info'', {}\\)\\)\")",
+      "Bash(python -c \"import json; data = json.load\\(open\\(''.claude/skills/tikhub-api-helper/openapi.json'', encoding=''utf-8''\\)\\); tags = data.get\\(''tags'', []\\); print\\(''\\\\n''.join\\([f\"\"{t[''name'']}: {t.get\\(''description'', ''''\\)[:60]}\"\" for t in tags[:20]]\\)\\)\")",
+      "WebSearch",
+      "Skill(tikhub-api-helper)",
+      "Skill(deep-research)",
+      "Bash(python -m research_subagent)",
+      "mcp__playwright__browser_navigate"
+    ]
+  }
+}
