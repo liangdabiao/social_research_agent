@@ -7,7 +7,18 @@
       "Skill(tikhub-api-helper)",
       "Skill(deep-research)",
       "Bash(python -m research_subagent)",
-      "mcp__playwright__browser_navigate"
+      "mcp__playwright__browser_navigate",
+      "Bash(python .claude/skills/tikhub-api-helper/api_searcher.py tags)",
+      "Bash(python .claude/skills/tikhub-api-helper/api_searcher.py 搜索)",
+      "Bash(python .claude/skills/tikhub-api-helper/api_searcher.py 评论)",
+      "Bash(python .claude/skills/tikhub-api-helper/api_searcher.py tag:Douyin-Search-API)",
+      "Bash(python .claude/skills/tikhub-api-helper/api_searcher.py tag:Xiaohongshu-Web-V2-API)",
+      "Bash(python .claude/skills/tikhub-api-helper/api_searcher.py tag:Bilibili-Web-API)",
+      "Bash(python .claude/skills/tikhub-api-helper/api_searcher.py tag:Zhihu-Web-API)",
+      "Bash(python .claude/skills/tikhub-api-helper/api_searcher.py \"fetch_realtime_search\")",
+      "Bash(python -c \"\nimport json\nwith open\\(''.claude/skills/tikhub-api-helper/openapi.json'', ''r'', encoding=''utf-8''\\) as f:\n    data = json.load\\(f\\)\n    \n# Get Weibo realtime search API\npath = data[''paths''][''/api/v1/weibo/web_v2/fetch_realtime_search''][''get'']\nprint\\(''Weibo realtime search parameters:''\\)\nfor param in path.get\\(''parameters'', []\\):\n    print\\(f\"\"  {param[''name'']}: {param.get\\(''description'', ''N/A''\\)} \\(required: {param.get\\(''required'', False\\)}\\)\"\"\\)\n\")",
+      "Bash(python -c \"import json; data = json.load\\(open\\(''.claude/skills/tikhub-api-helper/openapi.json'', ''r'', encoding=''utf-8''\\)\\); path = data[''paths''][''/api/v1/xiaohongshu/web_v2/fetch_search_notes''][''get'']; print\\(''Xiaohongshu parameters:''\\); [print\\(f\"\"  {p[''name'']}: required={p.get\\(''required'', False\\)}\"\"\\) for p in path.get\\(''parameters'', []\\)]\")",
+      "Bash(python -c \"\nimport json\nwith open\\(''xpeng_iron_robot_research_raw_data.json'', ''r'', encoding=''utf-8''\\) as f:\n    data = json.load\\(f\\)\n\nprint\\(''Douyin sample data:''\\)\nfor i, post in enumerate\\(data[''douyin''][''posts''][:5]\\):\n    aweme = post.get\\(''aweme_info'', {}\\)\n    print\\(f''\\\\n[{i+1}] {aweme.get\\(\"\"desc\"\", \"\"N/A\"\"\\)[:80]}...''\\)\n    print\\(f''Author: {aweme.get\\(\"\"author\"\", {}\\).get\\(\"\"nickname\"\", \"\"N/A\"\"\\)}''\\)\n    print\\(f''Stats: likes={aweme.get\\(\"\"statistics\"\", {}\\).get\\(\"\"digg_count\"\", 0\\)}, comments={aweme.get\\(\"\"statistics\"\", {}\\).get\\(\"\"comment_count\"\", 0\\)}''\\)\n    print\\(f''Sentiment: {post.get\\(\"\"_sentiment\"\", \"\"neutral\"\"\\)}''\\)\n\")"
     ]
   }
 }
